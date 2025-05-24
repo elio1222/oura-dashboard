@@ -7,6 +7,8 @@ import requests
 from db_operations.dailysleep import insertDailySleep
 from db_operations.sleeproutes import insertSleepRoutes
 from db_operations.sleeptime import insertSleepTimeRoutes
+from plots.sleep_plot import generatePlot
+from plots.score_plot import generateScorePlot
 
 #loading environment variables
 load_dotenv()
@@ -78,22 +80,24 @@ cursor.execute("""
 insertDailySleep(cursor, conn)
 # Fetches all columns from table
 cursor.execute("""SELECT sleep_date FROM dailysleep WHERE score > 90 LIMIT 3;""")
-print(cursor.fetchall())
+# print(cursor.fetchall())
 
 # inserts sleep routes into database
 insertSleepRoutes(cursor, conn)
 # Fetches one column from table
 cursor.execute("""SELECT COUNT(*) FROM sleeproutes WHERE 
                awake_time < 60000""")
-print(cursor.fetchone())
+# print(cursor.fetchone())
 
 # inserts sleep time routes into database
 insertSleepTimeRoutes(cursor, conn)
 # Fetches COUNT from table
 cursor.execute("""SELECT COUNT(*) FROM sleeptimeroutes""")
-print(cursor.fetchone())
+# print(cursor.fetchone())
 
+generatePlot(cursor, conn)
 # close
+generateScorePlot(cursor,conn)
 cursor.close()
 conn.close()
 
