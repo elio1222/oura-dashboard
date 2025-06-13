@@ -1,37 +1,63 @@
-.first-grid {   
-    height: 600px;
+div {
+    font-family: "Open Sans", sans-serif;
+    color: rgb(245, 245, 247);
+}
+.first-grid {
+    height: 900px;
     display: grid;
-    grid-template-columns: 1fr 500px;
+    grid-template-columns: 1fr 800px;
     border-width: 2px;
     border-color: black;
     border-style: solid;
     column-gap: 50px;
-    justify-content: space-evenly;
+    justify-items: end;
+    align-items: center;
 }
 .sleep-chart {
-    height: 100%;
-    width: 100%;
+    height: 98%;
+    width: 98%;
     border-width: 1px;
-    border-color: blue;
+    border-color: black;
     border-style: solid;
 }
 .user-info {
+    
+    vertical-align: middle;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 475px;
+    height: 98%;
+    width: 750px;
     border-width: 1px;
-    border-color: blue;
+    border-color: black;
     border-style: solid;
 }   
 .user-info1 {
+    border-radius: 25px;
+    background-color:#274168;
     margin: 10px 5px 20px 5px;
     flex: 1;
     border-width: 1px;
     border-color: black; 
     border-style: solid;
 }
+.inside-user-info1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.main-header-text {
+    font-size: 48px;
+    font-weight: 500;
+}
+.text-user-info1 {
+    margin: auto;
+    font-size: 32px;
+    font-weight: 400;
+}
 .user-info2 {
+    border-radius: 25px;
+    background-color:#274168;
     margin: 10px 5px 20px 5px;
     height: 250px;
     flex: 1;
@@ -43,11 +69,11 @@
 
 .first-row {
     width: 100%;
-    height: 500px;
+    height: 900px;
     display: flex;
     flex-direction: row;
     border-style: solid;
-    border-color: red;
+    border-color: black;
     border-width: 2px;
     margin: 50px 0px 50px 0px;
 }
