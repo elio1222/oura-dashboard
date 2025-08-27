@@ -10,14 +10,13 @@ div {
     border-color: black;
     border-style: solid;
     column-gap: 50px;
-    justify-items: end;
-    align-items: center;
+    justify-content: space-evenly;
 }
 .sleep-chart {
     height: 98%;
     width: 98%;
     border-width: 1px;
-    border-color: black;
+    border-color: blue;
     border-style: solid;
 }
 .user-info {
@@ -25,20 +24,21 @@ div {
     vertical-align: middle;
     display: flex;
     flex-direction: column;
-    height: 98%;
-    width: 750px;
+    height: 100%;
+    width: 475px;
     border-width: 1px;
-    border-color: black;
+    border-color: blue;
     border-style: solid;
 }   
 .user-info1 {
-    border-radius: 25px;
-    background-color:#274168;
     margin: 10px 5px 20px 5px;
     flex: 1;
-    border-width: 1px;
-    border-color: black; 
-    border-style: solid;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    background-color: #121212;
+    color: #FAFAFA;
+    flex-grow: 1;
 }
 .inside-user-info1 {
     display: flex;
@@ -56,16 +56,15 @@ div {
     font-weight: 400;
 }
 .user-info2 {
-    border-radius: 25px;
-    background-color:#274168;
     margin: 10px 5px 20px 5px;
     height: 250px;
     flex: 1;
-    border-width: 1px;
-    border-color: black;
-    border-style: solid;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    background-color: #121212;
+    color: #FAFAFA;
 }
-
 
 .first-row {
     width: 100%;
@@ -73,7 +72,7 @@ div {
     display: flex;
     flex-direction: row;
     border-style: solid;
-    border-color: black;
+    border-color: red;
     border-width: 2px;
     margin: 50px 0px 50px 0px;
 }
