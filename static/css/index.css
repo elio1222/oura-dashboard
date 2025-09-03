@@ -1,0 +1,98 @@
+.first-grid {
+    background-color:  #111e47;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    padding: 20px 20px 20px 20px;
+    row-gap: 30px;
+}
+div.div1, div.div2, div.div3 {
+    display: flex;
+    background-color: #16285c;
+    border-radius: 20px;
+    height: 100%;
+    column-gap: 15px;
+    padding: 10px 10px 10px 10px;
+}
+.sleep-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    flex: 2;
+    background-color: #111e47;
+}
+.header-chart {
+    padding-top: 15px;
+    flex: 1;
+    color: #c6ccd7;
+    font-size: 42px;
+    font-weight: 500;
+}
+.welcome {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    border-radius: 20px;
+    flex: 1;
+    background-color: #111e47;
+}
+.hello {
+    flex: 1;
+    color: #c6ccd7;
+    padding-top: 15px;
+    font-size: 48px;
+    font-weight: 500;
+}
+.score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex: 3;
+}
+.score1 {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 200px;
+    width: 200px;
+    background-color: #16285c;
+    border-radius: 50%;
+}
+.number {
+    flex: 1;
+    color: #c6ccd7;
+    font-size: 82px;
+    font-weight: 500;
+}
+#lastNightSleepNumber {
+    flex: 1;
+    color: #c6ccd7;
+    font-size: 82px;
+    font-weight: 500;
+}
+.boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+    flex: 1;
+    background-color: #111e47;
+}
+.sleep-time {
+    flex: 1;
+    color: #c6ccd7;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.testing-chart {
+    height: 100%;
+    width: 100%;
+}
