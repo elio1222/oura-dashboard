@@ -82,6 +82,25 @@ def getDateForSleepParams():
   return jsonify(data)
 
 
+@app.route("/oura/api/sleep_routes", methods = ['GET'])
+def getSleepRoutesData():
+  url = 'https://api.ouraring.com/v2/usercollection/sleep'
+  headers = {
+    "Authorization": f"Bearer {os.getenv("API_KEY")}"
+  }
+
+  today = datetime.date.today()
+  yesterday = today - datetime.timedelta(days=1)
+  params = {
+    "start_date": f"{yesterday}",
+    "end_date": f"{today}"
+  }
+
+  response = requests.get(url, headers=headers, params=params)
+  data = json.loads(response.text)
+  return jsonify(data)
+
+
 if __name__== "__main__":
   app.run(debug=True, port=8080)
 

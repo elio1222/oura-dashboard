@@ -10,10 +10,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <title>OURA DASHBOARD</title>
     </head>
-    <body style = "background-color: #111e47; padding: 10px 10px 10px 10px; height: 2000px;">
+    <body style = "background-color: #111e47; padding: 10px 10px 10px 10px;">
         <div class = "first-grid">
             <div class = "div1">
                 <div class = "sleep-chart">
+                    <div class = "main-header">
+                        Sleep Scores
+                    </div>
                     <div class = "time-range">
                         <label class = "time-labels" min = "2025-01-01">Start</label>
                         <input type = "date" id = "start">
@@ -29,24 +32,17 @@
                 </div>
                 <div class = "welcome">
                     <div class = "hello">
-                        Welcome Back!
-                    </div>
-                    <div class = "hello">
-                        Today's Sleep Score:
+                        Welcome Back! Last Night's Sleep: 
                     </div>
                     <div class = "score">
-                        <div class = "score1">
-                            <div id = "lastNightSleepNumber">
-                                93
-                            </div>
-                        </div>
+                        <canvas id = "pie"></canvas>
                     </div>
                 </div>
             </div>
             <div class = "div2">
                 <div class = "boxes">
                     <div class = "score">
-                        <div class = "hello">
+                        <div class = "sleep-time">
                             Recent REM Sleep
                         </div>
                         <canvas id = "rem-sleep-chart" >
