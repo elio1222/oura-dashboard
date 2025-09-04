@@ -111,23 +111,51 @@ function mainChart() {
     document.getElementById('end').setAttribute('max', formattedDate);
     document.getElementById('start').setAttribute('max', formattedDate);
     
+    /*
     const startdate = new Date(document.getElementById('start').value);
-    const endate = new Date(document.getElementById('end').value);
+    const enddate = new Date(document.getElementById('end').value);
+    */
+
+    const startDate = document.getElementById('start');
+    const START = startDate.value;
+
+    const endDate = document.getElementById('end');
+    const END = endDate.value;
+    
 
     fetch("/submit-date-sleep", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(startdate)
+        body: JSON.stringify({
+            start_date: START,
+            end_end: END
+        })
     })
     .then(res => res.json())
     .then(data => {
+        let scores = [];
+        let dates = [];
+        let canvas3 = 'main-plot'
+        console.log(data);
+
+        for (let i = 0; i < data.data.length; i++) {
+            scores.push(data.data[i].score);
+            dates.push(data.data[i].day);
+        }
+
+        console.log(scores);
+        console.log(dates);
+
+        createPlot(scores, dates, canvas3);
+        /* checks what type of data we got from the backend
         console.log('Response from FLASK: ', data);
+        */
+
     });
 }
 
 mainChart();
 sleepTimes();
 testing();
-console.log('here');

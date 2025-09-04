@@ -5,6 +5,10 @@ div {
 input {
     font-family: "Roboto";
 }
+button {
+    font-family: "Roboto";
+    font-weight: 400;
+}
 .first-grid {
     background-color:  #111e47;
     display: grid;
@@ -21,6 +25,11 @@ div.div1, div.div2, div.div3 {
     column-gap: 15px;
     padding: 10px 10px 10px 10px;
 }
+.chart {
+    flex: 90%;
+    height: 100%;
+    width: 100%;
+}
 .sleep-chart {
     display: flex;
     flex-direction: column;
@@ -32,7 +41,7 @@ div.div1, div.div2, div.div3 {
 }
 .time-range {
     padding-top: 25px;
-    flex: 100px;
+    flex: 10%;
 }
 .time-labels {
     color: #c6ccd7;
