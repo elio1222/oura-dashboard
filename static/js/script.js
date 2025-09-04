@@ -40,12 +40,17 @@ function testing() {
     fetch("/oura/api/daily_sleep")
     .then(response => response.json())
     .then(data => {
-        let scores = [];
+        let rem_scores = [];
+        let deep_scores = [];
         let dates = [];
+        let canvas = 'rem-sleep-chart';
+        let canvas2 = 'deep-sleep-chart';
+        document.getElementById('lastNightSleepNumber').textContent = data.data[data.data.length-1].score;
 
         // data.data is the array of sleep entries
         for (let i = 0; i < data.data.length; i++) {
-            scores.push(data.data[i].score);
+            rem_scores.push(data.data[i].contributors.rem_sleep);
+            deep_scores.push(data.data[i].contributors.deep_sleep);
             dates.push(data.data[i].day);
         }
 
@@ -54,21 +59,22 @@ function testing() {
             console.log("Date:", dates[i], "Score:", scores[i]);
         }
         */
-        createPlot(scores, dates)
+        createPlot(rem_scores, dates, canvas);
+        createPlot(deep_scores, dates, canvas2);
     })
     .catch(error => console.error("Error fetching data:", error));
 }
 
-function createPlot(scoresArray, datesArray) {
-    let myChart = document.getElementById('testing').getContext('2d');
+function createPlot(number, day, canvas) {
+    let myChart = document.getElementById(`${canvas}`).getContext('2d');
 
     let sevenScoresChart = new Chart(myChart, {
         type: 'line',
         data: {
-            labels: datesArray,
+            labels: day,
             datasets: [{
                 label: 'Scores',
-                data: scoresArray,
+                data: number,
             }]
         }
     })
@@ -79,18 +85,49 @@ function sleepTimes() {
     .then(responese => responese.json())
     .then(data => {
         let times = [];
+        let dates = [];
+        let canvas = 'sleep-time-chart';
 
-        for (let i = 0; i < data.length; i++) {
-            times.push(Number(data.data[i].total_sleep_duration) / 60 / 60);
+        for (let i = 0; i < data.data.length; i++) {
+            let totalSleepDuration = Number(data.data[i].total_sleep_duration) / 60 / 60;
+            totalSleepDuration = totalSleepDuration.toFixed(2);
+            totalSleepDuration = Number(totalSleepDuration);
+            times.push(totalSleepDuration);
+            dates.push(data.data[i].day);
         }
-        for (let i = 0; i < times.length; i++) {
-            console.log(times[i]);
-        }
+        
+        createPlot(times, dates, canvas);
     })
     .catch(error => console.error("Error fetching data:", error));
     
 }
 
+function mainChart() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    const formattedDate = `${year}-${month}-${day}`;
+    document.getElementById('end').setAttribute('max', formattedDate);
+    document.getElementById('start').setAttribute('max', formattedDate);
+    
+    const startdate = new Date(document.getElementById('start').value);
+    const endate = new Date(document.getElementById('end').value);
+
+    fetch("/submit-date-sleep", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(startdate)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log('Response from FLASK: ', data);
+    });
+}
+
+mainChart();
 sleepTimes();
 testing();
 console.log('here');

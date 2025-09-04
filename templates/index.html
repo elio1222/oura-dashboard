@@ -5,14 +5,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel = "stylesheet" href="/static/css/index.css">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <title>Document</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <title>OURA DASHBOARD</title>
     </head>
-    <body style = "background-color: #111e47; padding: 10px 10px 10px 10px;">
+    <body style = "background-color: #111e47; padding: 10px 10px 10px 10px; height: 2000px;">
         <div class = "first-grid">
             <div class = "div1">
                 <div class = "sleep-chart">
-                    <div class = "header-chart">
-                        Sleep Scores During The Spring 2025 Semester
+                    <div class = "time-range">
+                        <label class = "time-labels" min = "2025-01-01">Start</label>
+                        <input type = "date" id = "start">
+                        <label class = "time-labels">End</label>
+                        <input type = "date" id = "end">
+                        
                     </div>
                     <div class = "chart">
                         <canvas id = "testingf" >
@@ -21,7 +28,7 @@
                 </div>
                 <div class = "welcome">
                     <div class = "hello">
-                        Welcome Back Elio!
+                        Welcome Back!
                     </div>
                     <div class = "hello">
                         Today's Sleep Score:
@@ -39,29 +46,28 @@
                 <div class = "boxes">
                     <div class = "score">
                         <div class = "hello">
-                            Last 7 Sleep Scores
+                            Recent REM Sleep
                         </div>
-                        <canvas id = "testing" >
+                        <canvas id = "rem-sleep-chart" >
                         </canvas>
                     </div>
                 </div>
                 <div class = "boxes">
                     <div class = "score">
                         <div class = "sleep-time">
-                            Average Sleep Time This Week: 
+                            Recent Deep Sleep 
                         </div>
-                        <canvas id = "sleep-time-chart">
+                        <canvas id = "deep-sleep-chart">
                         </canvas>
                     </div>
                 </div>
                 <div class = "boxes">
                     <div class = "score">
-                        <div class = "score1">
-                            <div class = "number">
-                                1000
-                            </div>
+                        <div class = "sleep-time">
+                            Recent Sleep Duration 
                         </div>
-                    </div>
+                        <canvas id = "sleep-time-chart">
+                        </canvas>
                 </div>
             </div>
             <div class = "div3">

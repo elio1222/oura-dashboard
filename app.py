@@ -68,6 +68,27 @@ def getSleepTimes():
   data = json.loads(response.text)
   return jsonify(data)
 
+@app.route("/submit-date-sleep", methods = ['POST'])
+def getDateForSleepParams():
+  dataJS = request.get_json(force=True)
+  print(dataJS)
+  url = "https://api.ouraring.com/v2/usercollection/sleep"
+  headers = {
+    "Authorization": f"Bearer {os.getenv("API_KEY")}"
+  }
+
+  today = datetime.date.today()
+  sevenDaysAgo = today - datetime.timedelta(days=7)
+  params = {
+    "start_date": f"{dataJS}",
+    "end_date": f"{today}"
+  }
+  response = requests.get(url, headers=headers, params=params)
+
+  data = json.loads(response.text)
+  return jsonify(data)
+
+
 if __name__== "__main__":
   app.run(debug=True, port=8080)
 

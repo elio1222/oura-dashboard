@@ -1,3 +1,10 @@
+div {
+    font-family: "Roboto";
+    font-weight: 400;
+}
+input {
+    font-family: "Roboto";
+}
 .first-grid {
     background-color:  #111e47;
     display: grid;
@@ -23,12 +30,18 @@ div.div1, div.div2, div.div3 {
     flex: 2;
     background-color: #111e47;
 }
+.time-range {
+    padding-top: 25px;
+    flex: 100px;
+}
+.time-labels {
+    color: #c6ccd7;
+}
 .header-chart {
     padding-top: 15px;
     flex: 1;
     color: #c6ccd7;
     font-size: 42px;
-    font-weight: 500;
 }
 .welcome {
     display: flex;
@@ -44,7 +57,6 @@ div.div1, div.div2, div.div3 {
     color: #c6ccd7;
     padding-top: 15px;
     font-size: 48px;
-    font-weight: 500;
 }
 .score {
     display: flex;
@@ -89,7 +101,6 @@ div.div1, div.div2, div.div3 {
     flex: 1;
     color: #c6ccd7;
     font-size: 32px;
-    font-weight: 500;
 }
 
 .testing-chart {
